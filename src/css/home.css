@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:sans-serif
+}
+.home{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-green);
+}
+.home .profile{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:20px 30px 0 ;
+}
+.home .avatarContainer{
+    height: 60px;
+    width: 60px;   
+}
+.home .avatar{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.home .username{
+    padding:20px;
+    font-size: 1.2em;
+    color:var(--cream);
+}
+.home nav{
+    flex:1;
+    display: flex;
+    align-items: center;
+}
+.home nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70%;
+    margin-bottom:80px;
+}
+.home nav li{
+    list-style-type: none;
+    background-color: var(--cream);
+    padding: 12px 24px;
+    margin:16px;
+    border-radius:8px;
+    text-align: center;
+}
+.home nav li a{
+    color: var(--dark-green);
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 200;
+}
+.home .log_out{
+    background-color: transparent;
+    outline: 1px solid var(--light-green);
+    outline-offset: -2px;
+}
+.home .log_out a{
+    color:var(--light-green);
+}
+
+/* ________ MEDIA QUERIES _____________________________________________ */
+@media screen and (min-width: 500px) /*and (max-width: 900px)*/{
+    .home .profile{
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        width: 90%;
+    }
+    .home nav li{
+        padding: 16px 32px;
+    }
+}

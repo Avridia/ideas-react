@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:sans-serif
+}
+:root{
+    --grey: #2C3333;
+    --dark-green:#34422b;
+    --medium-green:#688953;
+    --light-green:#c0d3b5;
+    --peach:rgb(239, 154, 105);
+    --cream:rgb(244, 240, 223);
+}
+.invisble{
+    display: none;
+}
+.visible{
+    display: block;
+}

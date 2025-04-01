@@ -1,0 +1,113 @@
+.ideas_page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--dark-green);
+}
+.idea_options{
+    padding-bottom:20px;
+}
+.idea_container{
+    display: flex;
+    flex-direction: column;
+}
+.idea_container .idea_card{
+    height: 60vh;
+    padding: 5%;
+    padding-top:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.idea_container .idea_card img{
+    max-height: 50vh;
+    width: 100%;
+    flex-grow:1;
+    object-fit: cover;
+    border-radius: 0 0 8px 8px;
+}
+.idea_container .idea_card .title_container{
+    padding: 0 5%;
+    width: 90%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--cream);
+    border-radius: 8px 8px 0 0;
+}
+.idea_container .idea_card .title{
+    color:var(--dark-green);
+    font-weight: 200;
+    padding:20px;
+    font-size: 1.4em;
+}
+.ideas_options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.ideas_options .first_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+.ideas_options .first_row li,
+.ideas_options .second_row{
+    list-style-type: none;
+    padding:10px 0;
+    flex:1;
+    text-align: center;
+    border-radius: 8px;
+}
+.ideas_options .first_row li:first-child{
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    margin-right: 5px;
+}
+.ideas_options .first_row li:last-child{
+    background-color: transparent;
+    color: var(--light-green);
+    border: 1px solid var(--light-green);
+    margin-left: 5px;
+}
+.ideas_options .second_row{
+    background-color: var(--medium-green);
+    color: var(--light-green);
+    margin-top:10px;
+    width: 90%;
+}
+
+@media screen and (min-width: 500px){
+    .idea_container{
+        height: 100vh;
+    }
+    .idea_card{
+        height: calc(100vh - 100px);
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+    }
+    .idea_container .idea_card img{
+        height: 350px;
+        width: 30vw;
+        border: 1px solid #2C3333;
+        border-radius: 20px 0px 0px 20px;
+        border-right: none;
+    }
+    .idea_container .idea_card .title_container{
+        position:relative;
+        top:0;
+        width: 40vw;
+        height: 350px;
+        border: 1px solid #2C3333;
+        border-radius: 0px 20px 20px 0;
+        border-left: none;
+        margin: 8px 16px 8px 0;
+}
+}
