@@ -5,7 +5,7 @@
 .header .profile{
     display: flex;
     align-items: center;
-    margin:20px 30px 0 ;
+    margin:10px 30px 10px ;
 }
 .header .avatarContainer{
     height: 50px;

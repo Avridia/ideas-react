@@ -30,7 +30,7 @@ function Ideas() {
             <p>información</p>
           </div>
         </div>
-        </section>
+      </section>
       <Menu />
     </div>
   )
