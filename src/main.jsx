@@ -4,7 +4,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 
 import './css/root.css'
 
-import { UserContext,LikesContext,LikesDBContext } from './Context.jsx'
+import { UserContext,LikesContext,LikesDBContext, LikesDBLoadingContext } from './Context.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Ideas from './pages/Ideas.jsx'
@@ -20,6 +20,7 @@ function App(){
   const [user,setUser] = useState("")
   const [likes,setLikes] = useState([])
   const [likesDB,setLikesDB] = useState([])
+  const [likesDBLoading,setLikesDBLoading] = useState([])
  
 
   const myRouter = createBrowserRouter([
@@ -56,11 +57,13 @@ function App(){
   return (
     <StrictMode>
       <UserContext.Provider value={{user,setUser}}>
-        <LikesDBContext.Provider value={{likesDB,setLikesDB}}>
-          <LikesContext.Provider value={{likes,setLikes}}>
-            <RouterProvider router={myRouter}/>
-          </LikesContext.Provider>
-        </LikesDBContext.Provider>
+        <LikesDBLoadingContext.Provider value={{likesDBLoading,setLikesDBLoading}}>
+          <LikesDBContext.Provider value={{likesDB,setLikesDB}}>
+            <LikesContext.Provider value={{likes,setLikes}}>
+              <RouterProvider router={myRouter}/>
+            </LikesContext.Provider>
+          </LikesDBContext.Provider>
+        </LikesDBLoadingContext.Provider>
       </UserContext.Provider>
     </StrictMode>
   )

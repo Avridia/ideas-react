@@ -1,7 +1,7 @@
 import { useState,useEffect,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { LikesContext,UserContext,LikesDBContext } from '../Context.jsx'
+import { LikesContext,UserContext,LikesDBContext,LikesDBLoadingContext } from '../Context.jsx'
 
 import IdeaCard from '../components/IdeaCard'
 import Menu from '../components/Menu'
@@ -13,6 +13,7 @@ import '../css/components_css/menu.css'
 
 function Ideas() {
 
+  let {likesDBLoading,setLikesDBLoading} = useContext(LikesDBLoadingContext)
   let {likes,setLikes} = useContext(LikesContext) 
   let {likesDB,setLikesDB} = useContext(LikesDBContext)   
   let {user,setUser} = useContext(UserContext) 
@@ -44,8 +45,6 @@ function Ideas() {
     let likedURL = randomIdeaUrl
 
     setLikes([...likes,{id : likedID, url : likedURL}])
-
-    console.log("estos son los likes del front ",likes) 
   }
 
   function clickOnNo(){
@@ -59,14 +58,13 @@ function Ideas() {
     setRandomIdeaUrl(randomItemResult.url)
     setRandomIdeaTitle(randomItemResult.idea_name)
     setRandomIdeaId(randomItemResult.id)
-    
   }
 
   useEffect( () => {
     if(likes){
       fetch("http://localhost:4000/add-like", {
         method : "POST",
-        body : JSON.stringify({likes,user}),
+        body : JSON.stringify({likes,user,likesDBLoading}),
         headers : {
           "Content-Type" : "application/json"
         }
