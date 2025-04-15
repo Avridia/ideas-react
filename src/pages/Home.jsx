@@ -12,7 +12,6 @@ function Home() {
 
     let {user,setUser} = useContext(UserContext)
     let {likesDB,setLikesDB} = useContext(LikesDBContext) 
-    console.log("likes en home",likesDB)  
 
     useEffect(() => {
         if (!user) {  

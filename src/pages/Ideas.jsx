@@ -43,21 +43,9 @@ function Ideas() {
     let likedID = randomIdeaId
     let likedURL = randomIdeaUrl
 
-
     setLikes([...likes,{id : likedID, url : likedURL}])
-    console.log("estos son los likes del front ",likes)
 
-      fetch("http://localhost:4000/add-like", {
-        method : "POST",
-        body : JSON.stringify({likes,user}),
-        headers : {
-          "Content-Type" : "application/json"
-        }
-      })
-      .then(response => response.json())
-      .then(response => setLikesDB(response.likes))
-
-      console.log(likesDB)
+    console.log("estos son los likes del front ",likes) 
   }
 
   function clickOnNo(){
@@ -71,7 +59,25 @@ function Ideas() {
     setRandomIdeaUrl(randomItemResult.url)
     setRandomIdeaTitle(randomItemResult.idea_name)
     setRandomIdeaId(randomItemResult.id)
+    
   }
+
+  useEffect( () => {
+    if(likes){
+      fetch("http://localhost:4000/add-like", {
+        method : "POST",
+        body : JSON.stringify({likes,user}),
+        headers : {
+          "Content-Type" : "application/json"
+        }
+      })
+      .then(response => response.json())
+      .then(response => setLikesDB(response.likes))
+    }
+  }, [likes])
+
+  
+
 
   useEffect( () => {
       fetch("http://localhost:4000/ideas")
