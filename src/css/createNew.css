@@ -67,5 +67,9 @@
     background-color: var(--peach);
     color:var(--dark-green)
 }
-
+@media screen and (min-width: 500px){
+    .createNew_page .createNew_container{
+        margin-bottom:50px;
+    }
+}
 

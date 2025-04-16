@@ -33,7 +33,7 @@
 
 @media screen and (min-width: 500px){
     .idea_menu{
-        position: absolute;
+        position: fixed;
         width: fit-content;
         flex-direction: column;
         height: fit-content;

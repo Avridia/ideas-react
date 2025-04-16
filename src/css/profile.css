@@ -88,5 +88,9 @@ button.change_button,
     background-color: var(--cream);
     border:none;
     border-radius:8px;
-
+}
+@media screen and (min-width: 500px){
+    .profile_page .profile_info ul{
+        width: 70vw;
+    }
 }

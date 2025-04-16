@@ -43,7 +43,7 @@ function Likes({id,url}) {
     <div className="likes_page">
       <Header />
       <ul className="liked_photos">
-        {likesDBLoading.map(({liked_id,url}) => <LikedItem key={liked_id} id={liked_id} url={url} />)}
+        {likesDBLoading.map(({liked_id,url}) => <LikedItem key={liked_id} id={liked_id} url={url}/>)}
       </ul>
       <Menu />
     </div>

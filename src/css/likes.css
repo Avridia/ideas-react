@@ -15,7 +15,8 @@
     align-items: flex-start;
     justify-content: space-around;
     width: 95vw;
-    margin:20px auto
+    margin:20px auto;
+    position: relative;
 }
 .liked_photos li{
     list-style-type: none;
@@ -27,4 +28,20 @@
     height: 100%;
     object-fit: cover;
     border-radius: 2px;
+}
+@media screen and (min-width: 500px){
+    .likes_page{
+        min-height: 100vh;
+        height: auto;
+    }
+    .liked_photos{
+        height: auto;
+        width: 75vw;
+    }
+    .liked_photos li{
+        list-style-type: none;
+        width: calc(75vw / 3 - 10px);
+        height: calc(75vw / 3 - 10px);
+        margin-bottom:10px;
+    }
 }
