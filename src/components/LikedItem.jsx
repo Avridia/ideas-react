@@ -10,6 +10,7 @@ function LikedItem({id,url}) {
   let [modalOpen,setModalOpen] = useState(false)
 
   let [title,setTitle] = useState("")
+  let [infoCard,setInfoCard] = useState("")
   
 
   
@@ -27,13 +28,13 @@ function LikedItem({id,url}) {
           }
         })
         .then(response => response.json())
-        .then(response => {
-          setTitle(response.title[0].idea_name)
-          console.log(title)
+        .then(({idea_name,info}) => {
+          setTitle(idea_name)
+          setInfoCard(info)
           })
         }}>
         <img src={`http://localhost:4000${url}`} alt=""/>
-        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} id={id} url={url} title={title}/>
+        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} id={id} url={url} title={title} infoCard={infoCard}/>
       </li>
       
     </>

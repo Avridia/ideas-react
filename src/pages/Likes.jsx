@@ -33,7 +33,7 @@ function Likes({id,url}) {
   .then(response => {
     setLikesDBLoading(response.likes)
   })
-  }, [])
+  }, [likes])
 
   console.log(likesDBLoading)
 
