@@ -6,11 +6,13 @@ import { LikesContext,UserContext,LikesDBContext,LikesDBLoadingContext } from '.
 import IdeaCard from '../components/IdeaCard'
 import Menu from '../components/Menu'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
+
 
 import '../css/idea.css'
 import '../css/components_css/menu.css'
 
-
+/* this page is showing ideas randomly from the database, user can save an idea in his likes or see the next random idea. User can also see more information about the idea clicking on the information button */
 function Ideas() {
 
   let {likesDBLoading,setLikesDBLoading} = useContext(LikesDBLoadingContext)
@@ -21,12 +23,13 @@ function Ideas() {
   let [randomIdeaUrl,setRandomIdeaUrl] = useState("")
   let [randomIdeaTitle,setRandomIdeaTitle] = useState("")
   let [randomIdeaId,setRandomIdeaId] = useState("")
+  let [modalOpen,setModalOpen] = useState(false)
+  let [title,setTitle] = useState("")
+  let [infoCard,setInfoCard] = useState("")
  
-
   const navigate = useNavigate()
-  
 
-  function clickOnYes({id,url}){
+  function clickOnYes(){
 
     ideas.sort(() => Math.random() - 0.5) // reorganizing ideas randomly
 
@@ -74,8 +77,6 @@ function Ideas() {
     }
   }, [likes])
 
-  
-
 
   useEffect( () => {
       fetch("http://localhost:4000/ideas")
@@ -109,15 +110,13 @@ function Ideas() {
   }, [])
 
 
-
-
   return (
     <div className="ideas_page">
       <Header />
       <section className="idea_options">
         <div className="idea_desktop_container">
-            <div className="idea_container">
-              <IdeaCard url={randomIdeaUrl} idea_name={randomIdeaTitle} />
+            <div className="idea_container"  style={ modalOpen ? { opacity: 0.3 } : { } }>
+              <IdeaCard url={randomIdeaUrl} idea_name={randomIdeaTitle}/>
             </div>
         </div>
         <div className="ideas_options">
@@ -125,8 +124,26 @@ function Ideas() {
             <li onClick={clickOnYes}>sí</li>
             <li onClick={clickOnNo}>no</li>
           </ul>
-          <div className="second_row">
+          <div className="second_row" onClick={ () => {
+              setModalOpen(true)
+              console.log("id es",randomIdeaId)
+
+              fetch("http://localhost:4000/modal/:id", {
+                method : "POST",
+                body : JSON.stringify({id : randomIdeaId }),
+                headers : {
+                  "Content-Type" : "application/json"
+                }
+              })
+              .then(response => response.json())
+              .then(({idea_name,info}) => {
+                setTitle(idea_name)
+                setInfoCard(info)
+                })
+            }}>
+            
             <p>información</p>
+            <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} id={randomIdeaId} url={randomIdeaUrl} title={randomIdeaTitle} infoCard={infoCard}/>
           </div>
         </div>
         </section>

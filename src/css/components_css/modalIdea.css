@@ -68,3 +68,14 @@
     background-color: var(--light-green);
     vertical-align: top;
 }
+
+@media screen and (min-width: 500px){
+    .modalIdea{
+        width: 60vw;
+        left: 20vw;
+        top:20vh;
+    }
+    .modalIdea .delete_option button{
+        width: 100%;
+    }
+}

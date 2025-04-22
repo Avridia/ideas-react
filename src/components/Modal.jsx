@@ -4,7 +4,8 @@ import '../css/components_css/modalIdea.css'
 
 import { UserContext,LikesContext } from '../Context'
 
-function Modal({id,url,isOpen,onClose,title,infoCard}) {
+/* user can see the modal from pages: ideas and likes. This modal is used to show extra information, to write it or modify it or to delete the idea from the likes */
+function Modal({id,isOpen,onClose,title,infoCard}) {
 
   const navigate = useNavigate()
   
@@ -68,13 +69,6 @@ function Modal({id,url,isOpen,onClose,title,infoCard}) {
                         setWrittenInfo(trimmed)
                       }
                       setEditing(false)
-                      /*
-                        if(newInfo.trim() != "" && newInfo.trim() != writtenInfo){
-                            setNewInfo(newInfo.trim())
-                        }
-                        setEditing(!editing)
-                        setWrittenInfo(newInfo)
-                        */
                     }
                 })}
             }} >{ editing ? "Guardar" : "Modificar información" }</button>

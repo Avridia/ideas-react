@@ -13,8 +13,6 @@ function LikedItem({id,url}) {
   let [infoCard,setInfoCard] = useState("")
   
 
-  
-
   return (
     <>
       <li onClick={() => {

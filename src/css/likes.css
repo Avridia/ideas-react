@@ -37,6 +37,7 @@
     .liked_photos{
         height: auto;
         width: 75vw;
+        flex:1;
     }
     .liked_photos li{
         list-style-type: none;

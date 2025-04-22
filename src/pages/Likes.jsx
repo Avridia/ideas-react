@@ -1,4 +1,4 @@
-import { useState,useContext,useEffect } from 'react'
+import { useContext,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { LikesContext,UserContext,LikesDBContext,LikesDBLoadingContext } from '../Context'
@@ -10,15 +10,12 @@ import Header from '../components/Header'
 import Menu from '../components/Menu'
 
 
-
-function Likes({id,url}) {
+/* this page is loading the likes from the data base and will be updated everytime the user add a new like */
+function Likes() {
 
   let {likes,setLikes} = useContext(LikesContext) 
-  let {likesDB,setLikesDB} = useContext(LikesDBContext)
   let {user,setUser} = useContext(UserContext)
   let {likesDBLoading,setLikesDBLoading} = useContext(LikesDBLoadingContext)
-
-  
 
 
   useEffect( () => {
@@ -35,7 +32,6 @@ function Likes({id,url}) {
   })
   }, [likes])
 
-  console.log(likesDBLoading)
 
   const navigate = useNavigate()
 

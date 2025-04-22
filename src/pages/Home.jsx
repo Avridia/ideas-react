@@ -1,11 +1,11 @@
-import { useState,useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate,Link } from 'react-router-dom'
-import { LikesContext,UserContext,LikesDBContext } from '../Context.jsx'
+import { UserContext,LikesDBContext } from '../Context.jsx'
 import { useContext } from 'react'
 
 import '../css/home.css'
 
-
+/* this is the home page, if no user is conected this page cannot be seen */
 function Home() {
 
   const navigate = useNavigate()
@@ -34,8 +34,8 @@ function Home() {
             <ul>
                 <li><Link to="/ideas">Ideas</Link></li>
                 <li><Link to="/likes">Likes</Link></li>
-                <li><Link to="/create-new">Add an idea</Link></li>
-                <li className="log_out"><Link to="/login">Log out</Link></li>
+                <li><Link to="/create-new">Añadir una idea</Link></li>
+                <li className="log_out"><Link to="/login">Salir</Link></li>
             </ul>
         </nav>
       </div>

@@ -6,7 +6,7 @@ import '../css/createNew.css'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 
-
+/* with this function, user will be able to upload a new idea, with a title */
 function CreateNew() {
 
   const navigate = useNavigate()
@@ -24,9 +24,6 @@ function CreateNew() {
     
         let data = new FormData();
 
-        console.log("este es inputText", inputText)
-        console.log("este es inputFile", inputFile)
-
         data.append("img",inputFile);
         data.append("filename", inputText);
 
@@ -36,10 +33,9 @@ function CreateNew() {
         })
         .then(response => response.json())
         .then(response => {
-            console.log("esta es la respuesta del fetch de createNew:",response)
             return setInputText("")
         })
-        .catch(error => console.log("este es el error index ",error))
+        .catch(error => console.log(error))
 
     }}>
         <div className="add_photo">
@@ -56,7 +52,6 @@ function CreateNew() {
                       }
                     }}/>
             </div> 
-            
         </div>
         <div className="add_title">
             <input type="text" name="filename" value={inputText} onChange={ event => setInputText(event.target.value) } id="" placeholder="nombre del plato"/>

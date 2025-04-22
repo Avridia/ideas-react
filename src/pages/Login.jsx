@@ -6,9 +6,11 @@ import { UserContext } from '../Context'
 import '../css/login.css'
 
 
+/* user must use an username recognized in the data base and the password must match, if they match user will be redirected to the home page  */
 function Login() {
 
   const navigate = useNavigate()
+
   let [username,setUsername] = useState("")
   let [password,setPassword] = useState("")
 
@@ -22,7 +24,6 @@ function Login() {
     <div className="form_container">
       <form onSubmit={ event => {
           event.preventDefault()
-
         
           fetch("http://localhost:4000/home", {
             method : "POST",
@@ -37,7 +38,7 @@ function Login() {
             if(response.error){
               setError(true)
 
-              return console.log("ha habido un error, estado del error:",error)
+              return console.log(error)
 
             }else{
 
@@ -51,11 +52,8 @@ function Login() {
             }
           })
           .catch(error => {
-            console.log(error)
             setError(true)
           })
-
-
         }} >
           <div className="input_userName" value={username} onChange={ event => setUsername(event.target.value)} >
             <div>Nombre de usuario</div>
