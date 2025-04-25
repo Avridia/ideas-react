@@ -1,4 +1,4 @@
-import { useState,useEffect,useContext } from 'react'
+import { useState,useEffect,useContext,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { LikesContext,UserContext,LikesDBContext,LikesDBLoadingContext } from '../Context.jsx'
@@ -64,7 +64,6 @@ function Ideas() {
   }
 
   useEffect( () => {
-    if(likes){
       fetch("https://ideas-api-ow3q.onrender.com/add-like", {
         method : "POST",
         body : JSON.stringify({likes,user,likesDBLoading}),
@@ -73,8 +72,10 @@ function Ideas() {
         }
       })
       .then(response => response.json())
-      .then(response => setLikesDB(response.likes))
-    }
+      .then(response => {
+        console.log("estos son los likes",likes)
+        setLikesDB(response.likes)
+      })
   }, [likes])
 
 

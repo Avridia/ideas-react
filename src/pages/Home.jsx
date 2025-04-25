@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate,Link } from 'react-router-dom'
-import { UserContext,LikesDBContext } from '../Context.jsx'
+import { UserContext,LikesDBContext,LikesContext } from '../Context.jsx'
 import { useContext } from 'react'
 
 import '../css/home.css'
@@ -12,6 +12,7 @@ function Home() {
 
     let {user,setUser} = useContext(UserContext)
     let {likesDB,setLikesDB} = useContext(LikesDBContext) 
+    let {likes,setLikes} = useContext(LikesContext)
 
     useEffect(() => {
         if (!user) {  
@@ -35,7 +36,12 @@ function Home() {
                 <li><Link to="/ideas">Ideas</Link></li>
                 <li><Link to="/likes">Likes</Link></li>
                 <li><Link to="/create-new">Añadir una idea</Link></li>
-                <li className="log_out"><Link to="/login">Salir</Link></li>
+                <li className="log_out" onClick={() => {
+                  setUser("")
+                  setLikesDB([])
+                  setLikes([])
+                  navigate("/login")
+                }}><Link to="/login">Salir</Link></li>
             </ul>
         </nav>
       </div>
