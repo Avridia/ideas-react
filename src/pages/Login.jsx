@@ -25,7 +25,7 @@ function Login() {
       <form onSubmit={ event => {
           event.preventDefault()
         
-          fetch("http://localhost:4000/home", {
+          fetch("https://ideas-api-ow3q.onrender.com/home", {
             method : "POST",
             body : JSON.stringify({username,password}),
             headers : {

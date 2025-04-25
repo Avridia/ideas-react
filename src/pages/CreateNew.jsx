@@ -27,7 +27,7 @@ function CreateNew() {
         data.append("img",inputFile);
         data.append("filename", inputText);
 
-        return fetch("http://localhost:4000/upload/img_ideas",{
+        return fetch("https://ideas-api-ow3q.onrender.com/upload/img_ideas",{
             method : "POST",
             body : data
         })

@@ -35,7 +35,7 @@ function Modal({id,isOpen,onClose,title,infoCard}) {
         <div className="options_container">
           <div className="delete_option">
             <button className="delete" onClick={ () => {
-                return fetch(`http://localhost:4000/likes/delete/${id}`, { 
+                return fetch(`https://ideas-api-ow3q.onrender.com/likes/delete/${id}`, { 
                   method : "DELETE",
                   body :  JSON.stringify({user}),
                   headers : {
@@ -55,7 +55,7 @@ function Modal({id,isOpen,onClose,title,infoCard}) {
                   setNewInfo(writtenInfo)
                   setEditing(true)
                 } else {
-                return fetch(`http://localhost:4000/likes/edit/text/${id}`, { 
+                return fetch(`https://ideas-api-ow3q.onrender.com/likes/edit/text/${id}`, { 
                   method : "PUT",
                   body : JSON.stringify({infoCard : newInfo}),
                   headers : {

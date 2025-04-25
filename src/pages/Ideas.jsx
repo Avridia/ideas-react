@@ -65,7 +65,7 @@ function Ideas() {
 
   useEffect( () => {
     if(likes){
-      fetch("http://localhost:4000/add-like", {
+      fetch("https://ideas-api-ow3q.onrender.com/add-like", {
         method : "POST",
         body : JSON.stringify({likes,user,likesDBLoading}),
         headers : {
@@ -79,7 +79,7 @@ function Ideas() {
 
 
   useEffect( () => {
-      fetch("http://localhost:4000/ideas")
+      fetch("https://ideas-api-ow3q.onrender.com/ideas")
       .then( response => {
           return new Promise((fulfill,reject) => {
               if(response.status == 500){
@@ -128,7 +128,7 @@ function Ideas() {
               setModalOpen(true)
               console.log("id es",randomIdeaId)
 
-              fetch("http://localhost:4000/modal/:id", {
+              fetch("https://ideas-api-ow3q.onrender.com/modal/:id", {
                 method : "POST",
                 body : JSON.stringify({id : randomIdeaId }),
                 headers : {

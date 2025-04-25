@@ -7,7 +7,7 @@ function IdeaCard({url,idea_name}){
             <div className="title_container">
               <h1 className="title">{`${idea_name}`}</h1>
             </div>
-            <img src={`http://localhost:4000${url}`} alt="" />
+            <img src={`https://ideas-api-ow3q.onrender.com${url}`} alt="" />
         </main>
 
         </>

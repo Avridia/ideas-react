@@ -18,7 +18,7 @@ function LikedItem({id,url}) {
       <li onClick={() => {
         setModalOpen(true)
 
-        fetch("http://localhost:4000/modal/:id", {
+        fetch("https://ideas-api-ow3q.onrender.com/modal/:id", {
           method : "POST",
           body : JSON.stringify({id}),
           headers : {
@@ -31,7 +31,7 @@ function LikedItem({id,url}) {
           setInfoCard(info)
           })
         }}>
-        <img src={`http://localhost:4000${url}`} alt=""/>
+        <img src={`https://ideas-api-ow3q.onrender.com${url}`} alt=""/>
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} id={id} url={url} title={title} infoCard={infoCard}/>
       </li>
       
