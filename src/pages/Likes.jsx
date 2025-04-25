@@ -19,7 +19,7 @@ function Likes() {
 
 
   useEffect( () => {
-    fetch("http://localhost:4000/likes", {
+    fetch("https://ideas-api-ow3q.onrender.com/likes", {
     method : "POST",
     body : JSON.stringify({user}),
     headers : {
